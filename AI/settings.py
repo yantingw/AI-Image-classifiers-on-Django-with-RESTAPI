@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '^+k&w#tjwa+0dhg5i+krp6b8+$6(0sk_6e4@upk#2jk730x28a'
+SECRET_KEY = 'w(0s^+k&k_krp4@upk#2jk730x6ea+0dhg5i+#tjw6b8+$628a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -29,26 +29,28 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 # Application definition
-# 基本设定
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-ACCOUNT_EMAIL_REQUIRED = True
-LOGIN_REDIRECT_URL = '/accounts/profile/'
 
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-)
+
+# 基本设定
+#ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+#ACCOUNT_EMAIL_REQUIRED = True
+#LOGIN_REDIRECT_URL = '/accounts/profile/'
+
+#AUTHENTICATION_BACKENDS = (
+#    'django.contrib.auth.backends.ModelBackend',
+#    'allauth.account.auth_backends.AuthenticationBackend',
+#)
 
 # Email setup
 # EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend' # Console output
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.exmail.qq.com'
-EMAIL_PORT = 465
-EMAIL_HOST_USER = 'weather@ranxiaolang.com'
-EMAIL_HOST_PASSWORD = 'S8XHdVFMdVZsnigx'
-EMAIL_USE_SSL = True
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_HOST = 'smtp.exmail.qq.com'
+#MAIL_PORT = 465
+#EMAIL_HOST_USER = 'weather@ranxiaolang.com'
+#EMAIL_HOST_PASSWORD = 'S8XHdVFMdVZsnigx'
+#EMAIL_USE_SSL = True
+#DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+#
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -118,9 +120,17 @@ WSGI_APPLICATION = 'AI.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'P@SSWd',
+        'HOST': 'db',
+        'PORT': 5432,
     }
+    #'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #}
 }
 
 
